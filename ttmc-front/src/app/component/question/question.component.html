@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="header">
+    <h1>Hey, {{ currentPlayer }} !</h1>
+  </div>
+
+  <div class="theme-container">
+    <p>Entre 1 et 10, tu te mets combien sur le thème ...</p>
+    <h2>{{ playerThemes.get(currentPlayer)?.name }}</h2>
+  </div>
+  @if(selectedDifficulty) {<div class="slider-container">
+    <input type="range" min="0" max="10" [value]="sliderValue" class="slider" disabled />
+  </div>}
+
+
+  <div class="questions-container">
+    @for(level of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; track $index){
+    <ng-container>
+      @if(!selectedDifficulty || selectedDifficulty === level) {
+      <div class="question-block">
+        <div class="question-header">
+          @if(selectedDifficulty) {
+          <button *ngIf="selectedDifficulty" class="reveal-btn" (click)="selectDifficulty(level)">
+            Question dévoilée ! 👉
+          </button>
+          }
+          @else {<button class="reveal-btn" (click)="selectDifficulty(level)">
+            Dévoiler la question
+          </button>}
+          <p class="question-number">{{ level }}</p>
+        </div>
+        @if(selectedDifficulty === level && currentQuestion) {
+        <div class="question-content">
+          <div (mousedown)="showAnswer()" (mouseup)="hideAnswer()" (mouseleave)="hideAnswer()"
+            (touchstart)="showAnswer()" (touchend)="hideAnswer()">
+            @if(isAnswerVisible) {
+            <p>Réponse : {{ currentQuestion.reponse }}</p>
+            } @else {
+            <p>
+              <strong>{{ currentQuestion.nomQuestion }}</strong>
+            </p>
+            }
+          </div>
+
+          <div class="buttons">
+            <button (click)="validateAnswer(true)" class="btn correct">Juste !</button>
+            <button (click)="validateAnswer(false)" class="btn incorrect">Faux !</button>
+          </div>
+          @if(answerIsCorrect !== null) {
+          <p [ngClass]="{ 'success': answerIsCorrect, 'error': !answerIsCorrect }">
+            {{ answerIsCorrect ? 'Bonne réponse !' : 'Mauvaise réponse !' }}
+          </p>
+          }
+        </div>
+        }
+      </div>
+      }
+    </ng-container>
+    }
+  </div>
+  <button (click)="nextPlayer()" class="next-player-btn">Joueur suivant</button>
+</div>

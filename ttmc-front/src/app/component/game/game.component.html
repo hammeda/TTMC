@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="wrapper">
+
+
+    <header class="header">
+      <h1 class="title">TU TE METS COMBIEN ?</h1>
+      <p class="subtitle">Dis-nous tout, teste toi avec tes potes. Et puis bon, buvez !</p>
+      <div class="buttons">
+        <button class="rules-btn">Règles</button>
+        <button class="settings-btn">Réglages</button>
+        <button class="rate-btn">Noter l’app</button>
+      </div>
+    </header>
+
+    <main class="content">
+      @if(players.length <= 0) { <h2 class="question">Alors, <br /> qui joue ?</h2>
+
+        }
+        <div class="player-input">
+          <input type="text" [(ngModel)]="newPlayer" placeholder="Nouveau joueur" />
+          <button class="add-player-btn" (click)="addPlayer()">+</button>
+        </div>
+        @if(players.length > 0) {
+        <div class="players-list">
+          <div class="player-cards">
+            @for(player of players; track i; let i = $index) {
+            <div class="player-card">
+              <div class="player-image-container">
+                <img [src]="playerImages[i]" alt="Player" class="player-image" />
+                <button class="remove-player-btn" (click)="removePlayer(i)">×</button>
+              </div>
+              <div class="player-name">{{ player }}</div>
+            </div>
+            }
+
+          </div>
+        </div>
+        }
+
+    </main>
+
+  </div>
+  @if(players.length < 2) { <button class="launchmin-btn" (click)="goToQuestions()">LANCER !</button>
+    } @else {
+    <button class="launch-btn" (click)="goToQuestions()">LANCER !</button>
+    }
+
+</div>

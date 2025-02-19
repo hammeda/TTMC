@@ -1,0 +1,48 @@
+<div class="themes-container max-w-4xl mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
+    <h1 class="text-2xl font-bold text-gray-800 text-center mb-6">Liste des Users</h1>
+    <div class="flex justify-between items-center mb-6">
+        <a [routerLink]="['/register']" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 shadow-md">
+            Ajouter un User
+        </a>
+    </div>
+    @if(users.length > 0) {
+    <table class="table-auto w-full bg-gray-100 rounded-lg shadow-md overflow-hidden">
+        <thead class="bg-gray-200 text-gray-700">
+            <tr>
+                <th class="px-4 py-2 text-left">Prénom</th>
+                <th class="px-4 py-2 text-left">Nom</th>
+                <th class="px-4 py-2 text-left">Email</th>
+                <th class="px-4 py-2 text-left">Roles</th>
+                <th class="px-4 py-2">Modifier</th>
+                <th class="px-4 py-2">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(user of users; track $index) {
+            <tr class="border-t border-gray-300">
+                <td class="px-4 py-2">{{ user.firstName }}</td>
+                <td class="px-4 py-2">{{ user.lastName }}</td>
+                <td class="px-4 py-2">{{ user.email }}</td>
+                <td class="px-4 py-2">{{ user.roles }}</td>
+                <td class="px-4 py-2 text-center">
+                    <a [routerLink]="['/users', user.id]"
+                        class="px-4 py-2 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 shadow-md">
+                        Modifier
+                    </a>
+                </td>
+                <td class="px-4 py-2 text-center">
+                    <button (click)="deleteUser(user.id)"
+                        class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 shadow-md">
+                        Supprimer
+                    </button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+
+    @else {
+    <p class="text-center text-gray-500 italic">Aucun thème disponible.</p>
+    }
+</div>

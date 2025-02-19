@@ -1,0 +1,19 @@
+<div class="max-w-4xl mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
+    <form [formGroup]="form" (submit)="onSubmit()" class="space-y-4">
+        <div class="mb-4">
+            <label for="name" class="block text-gray-700 font-medium mb-2">Nom du Thème</label>
+            <input id="name" type="text" formControlName="name"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+                placeholder="Entrez le nom du thème" />
+        </div>
+        <div class="flex justify-end space-x-4">
+            <button type="button" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg" routerLink="/themes">
+                Annuler
+            </button>
+            <button type="submit" [disabled]="form.invalid"
+                class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                {{ form.value.id ? 'Modifier' : 'Ajouter' }} un thème
+            </button>
+        </div>
+    </form>
+</div>

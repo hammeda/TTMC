@@ -1,0 +1,127 @@
+.container {
+    padding: 20px;
+    color: white;
+    background: linear-gradient(to bottom right, #7f5061, #526573);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.header h1 {
+    font-size: 32px;
+}
+
+.theme-container {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.theme-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.slider-container {
+    text-align: center;
+}
+
+.slider {
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 16px;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.correct {
+    background: green;
+    color: white;
+}
+
+.incorrect {
+    background: red;
+    color: white;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.next-player-btn {
+    align-self: center;
+    padding: 12px 24px;
+    background: white;
+    color: black;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.questions-container {
+    margin-top: 20px;
+}
+
+.question-block {
+    background: white;
+    color: black;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.reveal-btn {
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+}
+
+.question-number {
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 16px;
+}
+
+
+.question-content {
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}

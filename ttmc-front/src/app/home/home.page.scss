@@ -1,0 +1,41 @@
+.home-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gradient-background {
+  background: linear-gradient(to bottom right, #7f5061, #526573);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.start-btn {
+  padding: 10px 20px;
+  background-color: white;
+  color: pink;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+}
